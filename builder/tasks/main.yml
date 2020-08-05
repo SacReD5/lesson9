@@ -2,7 +2,7 @@
 # tasks file for builder
 - name: install packages
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   with_items:
     - git
@@ -18,7 +18,7 @@
 
 - name: fetch war from builder to master
   fetch:
-    src: "{{ project_path }}"/target/hello-1.0.war
+    src: "{{ project_path }}/target/hello-1.0.war"
     dest: "{{ war_artifact }}"
     flat: yes
   
