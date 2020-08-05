@@ -1,0 +1,13 @@
+- name: builder configuration
+  hosts: build
+  become: yes
+
+  roles:
+    - builder
+
+- name: production configuration
+  hosts: prod
+  become: yes
+
+  roles:
+    - prod

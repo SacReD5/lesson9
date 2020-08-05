@@ -1,2 +1,4 @@
 ---
 # defaults file for prod
+war_folder: /opt/artifact
+tomcat_folder: /var/lib/tovcat9/webapps

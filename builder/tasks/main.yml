@@ -1,2 +1,26 @@
 ---
 # tasks file for builder
+- name: install packages
+  apt:
+    name: {{ item }}
+    state: present
+  with_items:
+    - git
+    - maven
+
+- name: clone repo
+  git:
+    repo: "{{ project_url }}"
+    dest: "{{ project_path }}"
+
+- name: build project
+  shell: "mvn -f {{ project_path }}/pom.xml clean package"
+
+- name: fetch war from builder to master
+  fetch:
+    src: "{{ project_path }}"/target/hello-1.0.war
+    dest: "{{ war_artifact }}"
+    flat: yes
+  
+    
+
