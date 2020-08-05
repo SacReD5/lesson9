@@ -19,8 +19,5 @@
 - name: fetch war from builder to master
   fetch:
     src: "{{ project_path }}/target/hello-1.0.war"
-    dest: "{{ war_artifact }}"
+    dest: "{{ war_folder }}"
     flat: yes
-  
-    
-
